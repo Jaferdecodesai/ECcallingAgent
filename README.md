@@ -2,12 +2,12 @@
 
 Standalone agent test portal for the EthikCorp calling agent.
 
-This portal uses the Vapi browser SDK for live test calls, captures transcripts and lead details, and stores completed call data through the portal backend.
+This portal uses the browser SDK for live test calls, captures transcripts and lead details, and stores completed call data through the portal backend.
 
 ## Features
 
 - Premium mobile-first agent test experience.
-- Vapi-powered live call controls.
+- live call controls.
 - Live transcript display inside the phone interface.
 - Latest captured lead view for the current test call.
 - Email recipient configuration for call insights.
@@ -35,16 +35,14 @@ http://localhost:5173
 4. Add:
 
 ```bash
-VITE_VAPI_PUBLIC_KEY=f80cea3b-d773-4f2c-88a8-8d7c87cd57ee
-VITE_VAPI_ASSISTANT_ID=da9e9bf5-29e1-4d97-bd4b-f1dc3a97fe76
-VITE_VAPI_ASSISTANT_NAME=EC Calling Agent
+p
 VITE_SUPABASE_URL=https://your-project-ref.supabase.co
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 SUPABASE_URL=https://your-project-ref.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 ```
 
-The browser uses only the `VITE_` values for Vapi calls and Realtime updates. The Express API uses `SUPABASE_SERVICE_ROLE_KEY` to store calls, transcripts, and leads securely on the server side.
+The browser uses only the `VITE_` values for   calls and Realtime updates. The Express API uses `SUPABASE_SERVICE_ROLE_KEY` to store calls, transcripts, and leads securely on the server side.
 
 ## Backend Endpoints
 
@@ -54,14 +52,14 @@ The portal uses these endpoints for live records:
 GET  /api/health
 GET  /api/call-records
 POST /api/call-events
-POST /api/vapi/lead-tool
+POST /api/ /lead-tool
 PATCH /api/calls/:id/status
 POST /api/email-updates
 ```
 
-## Vapi Lead Capture Tool
+##   Lead Capture Tool
 
-Use the Vapi assistant:
+Use the   assistant:
 
 ```text
 Assistant name: EC Calling Agent
@@ -72,16 +70,16 @@ Public key: f80cea3b-d773-4f2c-88a8-8d7c87cd57ee
 Set the `submit_lead` tool Server URL to the deployed agent portal endpoint:
 
 ```text
-https://ethikcorp.aqionlabs.com/api/vapi/lead-tool
+https://ethikcorp.aqionlabs.com/api/ /lead-tool
 ```
 
 The same schema is also served by the portal for copy/paste:
 
 ```text
-https://ethikcorp.aqionlabs.com/api/vapi/lead-tool/schema
+https://ethikcorp.aqionlabs.com/api/ /lead-tool/schema
 ```
 
-Use this schema in Vapi. It intentionally allows the tool to run once any captured field is available, instead of waiting for every field:
+Use this schema in  . It intentionally allows the tool to run once any captured field is available, instead of waiting for every field:
 
 ```json
 {
@@ -113,7 +111,7 @@ Use this schema in Vapi. It intentionally allows the tool to run once any captur
 }
 ```
 
-The endpoint accepts the Vapi tool payload, merges it into the active browser call using the Vapi call ID, and stores:
+The endpoint accepts the   tool payload, merges it into the active browser call using the   call ID, and stores:
 
 - `customer_name` as lead name
 - `company_name` inside the call lead details
